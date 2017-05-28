@@ -4,9 +4,10 @@
         <title>Mars Rover Kata!</title>
 				<link rel="stylesheet" type="text/css" href="rover.css">
     </head>
-    <body>
+    <body onload="initialize();getPosition()"">
 	<div id="container">
 		<div id="grid">
+      <div id="rover" style="margin-left:;"></div>
 			<div id="p1_10" class="rectangle"></div>
       <div id="p2_10" class="rectangle"></div>
       <div id="p3_10" class="rectangle"></div>
@@ -111,10 +112,10 @@
 		<div id="control1">
 		  <div id="currentPosPanel">
 		    <div id="currentLeft">
-		      <div id="currentX">10</div>
+		      <div id="currentX"></div>
 		    </div>
         <div id="currentRight">
-          <div id="currentY">8</div>
+          <div id="currentY"></div>
         </div>
 		  </div>
 		</div>
@@ -132,8 +133,11 @@
 		  </div>
 		</div>
 		<div id="control3">
-		  <div id="goButton"></div>
+		  <button id="goButton"></button>
+      <button id="goButton2" onclick="getPosition();"></button>
 		</div>
 	</div>
+  <div id="proves">Hola</div>
+  <script src="rover.js"></script>
 </body>
 </html>
