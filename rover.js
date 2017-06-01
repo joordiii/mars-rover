@@ -1,9 +1,11 @@
 var dir="";
+var pos="";
 var myRover = {
   iniPos :"" ,
   iniTopPosition: "",
   iniLeftPosition: "" ,
-  direction: dir
+  direction: dir,
+  position: pos
 };
 
 /*var dir="";
@@ -35,13 +37,19 @@ function setPosition() {
 
 
 //gets the position and displays the pixels in X: Y: screen
-function getPosition() {
-  var pixTop = document.getElementById("rover").style.marginTop;
+var pixTop="";
+var pixTopPf="";
+function getTopPosition() {
+  pixTop = document.getElementById("rover").style.marginTop;
+  pixTopPf= parseFloat(pixTop);
+  document.getElementById("currentY").innerHTML = pixTopPf;
+  }
+var pixLeft="";
+var pixLeftPf="";
+function getLeftPosition() {
   var pixLeft = document.getElementById("rover").style.marginLeft;
-  var pixTopPf= parseFloat(pixTop);
   var pixLeftPf= parseFloat(pixLeft);
   document.getElementById("currentX").innerHTML = pixLeftPf;
-  document.getElementById("currentY").innerHTML = pixTopPf;
 }
 
 //Grid that contain pixels (padding-top and padding-left) position
@@ -77,29 +85,34 @@ var count6=-1;
 for (var i=0; i<=10; i++){
   gridPos[i]=new Array(10);
     count5=count5+1;
-    count5=-1;
+    count6=-1;
     for (var j=0; j<=10; j++){
       count6=count6+1;
       gridPos[i][j]=[count5,count6];
     }
 }
 // Looking for an element into the array
-var a = document.getElementById("rover").style.marginTop;
-var b = document.getElementById("rover").style.marginLeft;
-document.getElementById("proves").innerHTML=b;
-var item =[a,b];
+var item2 =[pixTopPf,pixLeftPf];
+var item = parseFloat(item2);
+function isItemInArray(gridPix,item){
+  /*var pixTop = document.getElementById("rover").style.marginTop;
+  var pixLeft = document.getElementById("rover").style.marginLeft;
+  var pixTopPf= parseFloat(pixTop);
+  var pixLeftPf= parseFloat(pixLeft);*/
+  document.getElementById("proves").innerHTML=item;
 
-function isItemInArray(){
   for (var j=0; j<gridPix.length; j++){
-    for (var k=0; k<gridPix.length; k++)
+    for (var k=0; k<gridPix.length; k++) {
       if (gridPix[j][k][0]===item[0] && gridPix[j][k][1]===item[1] ) {
-        console.log(j);
-        console.log(gridPix[j][k]);
-    }
-  }
-}
+        document.getElementById("currentX").innerHTML = gridPos[j][k][0];
+        document.getElementById("currentY").innerHTML = gridPos[j][k][1];
+        break;
+        }
 
-isItemInArray(gridPix,item);
+    }
+}
+}
+console.log(item2);
 
 //function forward
 function goForward(myRover,pixLeftPf,pixTopPf) {
@@ -119,4 +132,4 @@ function goForward(myRover,pixLeftPf,pixTopPf) {
       break;
   }
 }
-goForward(myRover);
+/*goForward(myRover);*/

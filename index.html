@@ -4,7 +4,7 @@
         <title>Mars Rover Kata!</title>
 				<link rel="stylesheet" type="text/css" href="rover.css">
     </head>
-    <body onload="initialize();getPosition()"">
+    <body onload="initialize();getTopPosition();getLeftPosition()">
 	<div id="container">
 		<div id="grid">
       <div id="rover" style="margin-left:;"></div>
@@ -134,7 +134,7 @@
 		</div>
 		<div id="control3">
 		  <button id="goButton"></button>
-      <button id="goButton2" onclick="getPosition();"></button>
+      <button id="goButton2" onclick="getLeftPosition();getTopPosition()"></button>
 		</div>
 	</div>
   <div id="proves">Hola</div>
