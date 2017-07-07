@@ -14,7 +14,25 @@ var pixLeft="";
 var pixLeftPf="";
 //rover goes at the starting point onload
 function initialize() {
-  myRover = {
+
+for (var a=0; a<100; a=a+1) {
+  var iDiv = document.createElement('div');
+  iDiv.id = 'c' + a;
+  iDiv.className = 'rectangle';
+  var grid = document.getElementById("grid");
+  grid.appendChild(iDiv);
+
+  if (a%2 === 0){
+    var divRover = document.createElement('div');
+    divRover.id = 'rover';
+    iDiv.appendChild(divRover);
+  }
+
+
+  }
+
+
+  /*myRover = {
   iniPos : gridPix[10][0],
   iniTopPosition: gridPix[10][0][0],
   iniLeftPosition: gridPix[10][0][1],
@@ -27,7 +45,7 @@ function initialize() {
   document.getElementById("currentY").innerHTML=pixTopPf;
   pixLeft = document.getElementById("rover").style.marginLeft;
   pixLeftPf= parseFloat(pixLeft);
-  document.getElementById("currentX").innerHTML=pixLeftPf;
+  document.getElementById("currentX").innerHTML=pixLeftPf;*/
 }
 function setPosition() {
   /*document.getElementById("rover").style.marginTop = myRover.iniTopPosition+'px';
