@@ -166,23 +166,38 @@ body {
 	padding-top: 50px;
 }
 #goButton {
-	width: 71px;
-	height: 92px;
+	/*width: 71px;
+	height: 92px;*/
+	width: 25px;
+	height: 25px;
 	background-image: url(images/go_button_hover.jpg);
 	background-repeat: no-repeat;
 }
 #goButton2 {
-	width: 71px;
-	height: 92px;
+	/*width: 71px;
+	height: 92px;*/
+	width: 25px;
+	height: 25px;
+	background-image: url(images/go_button_hover.jpg);
+	background-repeat: no-repeat;
+}
+#goButton3 {
+	/*width: 71px;
+	height: 92px;*/
+	width: 25px;
+	height: 25px;
 	background-image: url(images/go_button_hover.jpg);
 	background-repeat: no-repeat;
 }
 #goButton:hover  {
   background-image: url(images/go_button.jpg);
   }
-	#goButton2:hover  {
+#goButton2:hover  {
 	  background-image: url(images/go_button.jpg);
-	  }
+	}
+#goButton3:hover  {
+		background-image: url(images/go_button.jpg);
+	}
 #proves {
 	float:left;
 	height: 100px;
