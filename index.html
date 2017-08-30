@@ -2,46 +2,90 @@
 <html>
     <head>
         <title>Mars Rover Kata!</title>
-				<link rel="stylesheet" type="text/css" href="rover.css">
+				<link rel="stylesheet" type="text/css" href="test_8_rover.css">
     </head>
-    <body onload="initialize();">
+    <body>
 
   	<div id="container">
-		<div id="grid">
+		  <div id="grid">
+      </div>
+      <div id="caixa1">
+        <div class="titols">ENTER MOVEMENT COMMANDS ROVER 1 (RED-PINK)</div>
+        <form>
+          <input id="commands" type="text"><br>
+          <br>
+          <input type="button" value="go" onclick="save()">
+        </form>
+      </div>
+      <br>
+      <div id="caixa2">
+        <div class="titols">ROVER POSITION</div>
+        <div id="visors">
+          <div id="visor">Y Coordinate</div>
+          <div id="visor1"></div>
+          <div id="visor">X Coordinate</div>
+          <div id="visor2"></div>
+        </div>
+      </div>
+      <div id="caixa3">
+          <div class="titols">OBSTACLES CREATION</div>
+          <form id="obstacle1">
+            <div class="ombrejat">OBSTACLE 1</div>
+            <br>
+            Enter obstacle Y position:<br>
+            <input id="obsYPos1" type="text"><br>
+            <br>
+            Enter obstacle X position:<br>
+            <input id="obsXPos1" type="text"><br>
+            <br>
+            <input type="button" value="set obstacle" onclick="createObstacle1()">
+          </form>
+          <form id="obstacle2">
+            <div class="ombrejat">OBSTACLE 2</div>
+            <br>
+            Enter obstacle Y position:<br>
+            <input id="obsYPos2" type="text"><br>
+            <br>
+            Enter obstacle X position:<br>
+            <input id="obsXPos2" type="text"><br>
+            <br>
+            <input type="button" value="set obstacle" onclick="createObstacle2()">
+          </form>
+
+          <form id="obstacle3">
+            <div class="ombrejat">OBSTACLE 3</div>
+            <br>
+            Enter obstacle Y position:<br>
+            <input id="obsYPos3" type="text"><br>
+            <br>
+            Enter obstacle X position:<br>
+            <input id="obsXPos3" type="text"><br>
+            <br>
+            <input type="button" value="set obstacle" onclick="createObstacle3()">
+          </form>
+          <form id="obstacle4">
+            <div class="ombrejat">OBSTACLE 4</div>
+            <br>
+            Enter obstacle Y position:<br>
+            <input id="obsYPos4" type="text"><br>
+            <br>
+            Enter obstacle X position:<br>
+            <input id="obsXPos4" type="text"><br>
+            <br>
+            <input type="button" value="set obstacle" onclick="createObstacle4()">
+            </form>
+        </div>
+    </div>
 
 
-		</div>
-		<div id="control1">
-		  <div id="currentPosPanel">
-		    <div id="currentLeft">
-		      <div id="currentX"></div>
-		    </div>
-        <div id="currentRight">
-          <div id="currentY"></div>
-        </div>
-		  </div>
-		</div>
-		<div id="control2">
-		  <div id="destinationPanel">
-        <div id="destTop">
-          <div id="destCommands">fflrbbff</div>
-        </div>
-        <div id="destLeft">
-          <div id="destX">10</div>
-        </div>
-        <div id="destRight">
-          <div id="destY">10</div>
-        </div>
-		  </div>
-		</div>
-		<div id="control3">
-		  <button id="goButton"  onclick="setPosition();"></button>
-      <button id="goButton2" onclick="getLeftPosition();getTopPosition();"></button>
-      <button id="goButton3" onclick="f();"></button>
-      <!--<button id="goButton3" onclick="isItemInArray(gridPix,item);"></button>-->
-		</div>
-	</div>
-  <div id="proves">Hola</div>
-  <script src="rover.js"></script>
+    <button id="goButtonf" onclick="f(taula);">GO FORWARD</button>
+    <button id="goButtonb" onclick="b(taula);">GO BACKWARD</button>
+    <button id="goButtonr" onclick="turnRight();">TURN RIGHT</button>
+    <button id="goButtonl" onclick="turnLeft();">TURN LEFT</button>
+    <button id="goButtonf2" onclick="f2(taula);">GO FORWARD</button>
+    <button id="goButtonb2" onclick="b2(taula);">GO BACKWARD</button>
+    <button id="goButtonr2" onclick="turnRight2();">TURN RIGHT</button>
+    <button id="goButtonl2" onclick="turnLeft2();">TURN LEFT</button>
+    <script src="test_8_rover.js"></script>
 </body>
 </html>
