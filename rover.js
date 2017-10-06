@@ -42,57 +42,15 @@ posIni2.appendChild(myRover2);
 //funció per crear obstacles per teclat, OBSTACLE1
 var rock1 = document.createElement('div');
 var scanDiv1 ='';
-var posRock1 ='';
 function createObstacle1(){
+  var posRock1 ='';
   var xPos1 = document.getElementById('obsXPos1').value;
   var yPos1 = document.getElementById('obsYPos1').value;
-  /*rock1.className='rock';*/
   posRock1 = taula[yPos1][xPos1];
   posRock1.className='rock';
-  /*posRock1.appendChild(rock1);*/
-  /*scanDiv1 = document.getElementByClassname('rock');*/
+  document.getElementById('obsYPos1').value='';
+  document.getElementById('obsXPos1').value='';
 }
-
-//funció per crear obstacles per teclat, OBSTACLE2
-var rock2 = document.createElement('div');
-var scanDiv2 ='';
-var posRock2 ='';
-function createObstacle2(){
-  var xPos2 = document.getElementById('obsXPos2').value;
-  var yPos2 = document.getElementById('obsYPos2').value;
-  rock2.id='rock';
-  posRock2 = taula[yPos2][xPos2];
-  posRock2.className='rock';
-  posRock2.appendChild(rock2);
-  /*scanDiv2 = document.getElementById('rock');*/
-}
-//funció per crear obstacles per teclat, OBSTACLE3
-var rock3 = document.createElement('div');
-var scanDiv3 ='';
-var posRock3 ='';
-function createObstacle3(){
-  var xPos3 = document.getElementById('obsXPos3').value;
-  var yPos3 = document.getElementById('obsYPos3').value;
-  rock3.id='rock';
-  posRock3 = taula[yPos3][xPos3];
-  posRock3.className='rock';
-  posRock3.appendChild(rock3);
-/*  scanDiv3 = document.getElementById('rock');*/
-}
-//funció per crear obstacles per teclat, OBSTACLE2
-var rock4 = document.createElement('div');
-var scanDiv4 ='';
-var posRock4 = '';
-function createObstacle4(){
-  var xPos4 = document.getElementById('obsXPos4').value;
-  var yPos4 = document.getElementById('obsYPos4').value;
-  rock4.id='rock';
-  posRock4 = taula[yPos4][xPos4];
-  posRock4.className='rock';
-  posRock4.appendChild(rock4);
-  /*scanDiv4 = document.getElementById('rock');*/
-}
-
 
 //forward function
 function f(){
@@ -1124,25 +1082,143 @@ function save( ) {
   }
 }
 
+//Creació obstacles Random
+function randomObstacle(){
+  for (var count1=0;count1<100;count1++){
+  setTimeout(innerRandomObs,100*count1);
+    }
+}
+var gridBox=[];
+var griBoxPos='';
+var posRock ='';
+var count2=0;
+var xPos=0;
+var yPos=0;
 
-
-
-
-
-
-/*setTimeout(function(){f(taula);},3000);
-setTimeout(function(){b(taula);},3000);
-setTimeout(function(){turnRight(taula);},3000);
-setTimeout(function(){turnLeft(taula);},3000);*/
-
-/*setTimeout(function(){
-      setDelay();
-}, 5000);*/
-
-/*var myVar;
-function setDelay(){
-  myVar = setTimeout(emptyFunction, 3000);
+function innerRandomObs1(){
+  var a=0;
+  xPos = Math.floor(Math.random()*10);
+  yPos = Math.floor(Math.random()*10);
+  if(gridBox.length === 0){
+    gridBox.push(taula[yPos][xPos]);
+    posRock = taula[yPos][xPos];
+    posRock.className='rock';
+    count2=0;
+    return;
   }
+    for (a=0;a<=gridBox.length;a++){
+      posRock = taula[yPos][xPos];
+      gridBoxPos=gridBox[a];
+      if(gridBoxPos.id !== posRock.id ){
+        count2=count2+1;
+      }
+      else {
+        count2 = 0;
+        innerRandomObs();
+        break;
+      }
+      if (count2==gridBox.length){
+        gridBox.push(taula[yPos][xPos]);
+        posRock.className='rock';
+        count2=0;
+      break;
+    }
+    }
+}
 
-function emptyFunction(){
-}*/
+function innerRandomObs(){
+  /*var a=0;*/
+  xPos = Math.floor(Math.random()*10);
+  yPos = Math.floor(Math.random()*10);
+  posRock = taula[yPos][xPos];
+  if(posRock.className === "rock"){
+      innerRandomObsLau();
+  }else{
+      posRock.className = "rock";
+  }
+}
+
+//funció per crear 4 obstacles que es mouen aleatòriament
+
+function movingObstacles(){
+  var e=0;
+  for (var d=0;d<100;d++){
+  setTimeout(mRock1,1000*(d+e));
+  setTimeout(mRock2,1000*(d+e+1));
+  setTimeout(mRock3,1000*(d+e+2));
+  setTimeout(mRock4,1000*(d+e+3));
+  e=e+3;
+    }
+}
+
+var xPosition1=1;
+var yPosition1=1;
+var posMRock1=[];
+function mRock1(){
+  var divABorrar11 = taula[yPosition1] [xPosition1];
+  if (divABorrar11.className!=='rover' && divABorrar11.className!=='rover2') {
+    divABorrar11.innerHTML='';
+    divABorrar11.className='rec';
+    xPosition1 = Math.floor(Math.random()*10);
+    yPosition1 = Math.floor(Math.random()*10);
+    posMRock1 = taula[yPosition1][xPosition1];
+    posMRock1.className='rock';
+  }
+  else{
+    mRock1();
+  }
+}
+
+var xPosition2=2;
+var yPosition2=2;
+var posMRock2=[];
+function mRock2(){
+  var divABorrar12 = taula[yPosition2] [xPosition2];
+  if (divABorrar12.className!=='rover' && divABorrar12.className!=='rover2') {
+    divABorrar12.innerHTML='';
+    divABorrar12.className='rec';
+    xPosition2 = Math.floor(Math.random()*10);
+    yPosition2 = Math.floor(Math.random()*10);
+    posMRock2 = taula[yPosition2][xPosition2];
+    posMRock2.className='rock';
+  }
+  else{
+    mRock2();
+  }
+}
+
+var xPosition3=3;
+var yPosition3=3;
+var posMRock3=[];
+function mRock3(){
+  var divABorrar13 = taula[yPosition3] [xPosition3];
+  if (divABorrar13.className!=='rover' && divABorrar13.className!=='rover2') {
+    divABorrar13.innerHTML='';
+    divABorrar13.className='rec';
+    xPosition3 = Math.floor(Math.random()*10);
+    yPosition3 = Math.floor(Math.random()*10);
+    posMRock3 = taula[yPosition3][xPosition3];
+    posMRock3.className='rock';
+  }
+  else{
+    mRock3();
+  }
+}
+
+var xPosition4=4;
+var yPosition4=4;
+var posMRock4=[];
+function mRock4(){
+  var divABorrar14 = taula[yPosition4] [xPosition4];
+  if (divABorrar14.className!=='rover' && divABorrar14.className!=='rover2') {
+    divABorrar14.innerHTML='';
+    divABorrar14.className='rec';
+    xPosition4 = Math.floor(Math.random()*10);
+    yPosition4 = Math.floor(Math.random()*10);
+    posMRock4 = taula[yPosition4][xPosition4];
+    posMRock4.className='rock';
+  }
+  else{
+    mRock4();
+  }
+}
